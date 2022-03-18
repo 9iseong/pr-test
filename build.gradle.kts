@@ -35,12 +35,19 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation ("org.springframework.boot:spring-boot-starter-undertow")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     compileOnly("org.projectlombok:lombok")
-    runtimeOnly("com.h2database:h2")
+//    runtimeOnly("com.h2database:h2")
+
+    //httpClient
+    implementation ("org.apache.httpcomponents:httpclient:4.5.9")
+
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation("org.postgresql:postgresql:42.3.3")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")

@@ -1,1 +1,53 @@
 
+server:
+  port: 8080
+
+
+# swagger 확인 주소 http://localhost:8080/swagger-ui/index.html
+#springdoc:
+#  swagger-ui:
+#    path: /swagger/api
+#    operationsSorter: method
+
+
+
+#Datasource Configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pr
+    username: postgres
+    password: test@2022
+
+  jpa:
+    hibernate:
+      #      ddl-auto: validate
+      ddl-auto: update
+    generate-ddl: off
+    show-sql: on
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    properties:
+      hibernate:
+        #        show_sql: true
+        #        format_sql: true
+        #        use_sql_comments: true
+        jdbc.lob.non_contextual_creation: true
+        resource.beans.container: org.springframework.orm.hibernate5.SpringBeanContainer
+
+
+pr:
+  api-version: 0.0.1
+  allowed-origins: http://localhost,http://localhost:8080,http://localhost:3000,http://20.196.192.224
+  allowed-methods: GET, POST, PUT, DELETE, PATCH
+  format-date: yyyy-MM-dd
+  format-date-time: yyyy-MM-dd HH:mm:ss
+
+
+
+logging:
+  level:
+    root: info
+    web: debug
+    sql: info
+    com.proj.prserver: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace #  sql parameter
+    #    org.hibernate.type.descriptor.sql.BasicExtractor: trace # 출력 데이타
