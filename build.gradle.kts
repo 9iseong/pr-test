@@ -47,6 +47,7 @@ dependencies {
 
     //httpClient
     implementation ("org.apache.httpcomponents:httpclient:4.5.9")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
 
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
     implementation("org.postgresql:postgresql:42.3.3")

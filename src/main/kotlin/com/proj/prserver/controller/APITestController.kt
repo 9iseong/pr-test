@@ -14,9 +14,8 @@ class APITestController(
 ) {
 
     @GetMapping("/")
-    fun test():String {
-      pullRequestService.getPullRequest();
-      return "test";
+    fun test():String? {
+      return pullRequestService.getPullRequest()
     }
 
 }

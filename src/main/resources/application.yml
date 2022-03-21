@@ -35,12 +35,10 @@ spring:
 
 
 pr:
-  api-version: 0.0.1
   allowed-origins: http://localhost,http://localhost:8080,http://localhost:3000,http://20.196.192.224
   allowed-methods: GET, POST, PUT, DELETE, PATCH
   format-date: yyyy-MM-dd
   format-date-time: yyyy-MM-dd HH:mm:ss
-
 
 
 logging:
