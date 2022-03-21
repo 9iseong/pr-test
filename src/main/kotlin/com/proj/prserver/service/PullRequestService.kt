@@ -21,7 +21,7 @@ class PullRequestService(
         val restTemplate: RestTemplate
 ) {
 
-  fun getPullRequest(): ResponseEntity<Any>? {
+  fun getPullRequest(): String? {
     log.info { "GET person" }
 
     val headers = HttpHeaders()
@@ -30,7 +30,7 @@ class PullRequestService(
 
     //api를 호출하여 데이터를 MAP타입으로 전달 받는다.
     val resultMap : ResponseEntity<String>
-            = restTemplate.exchange("https://api.github.com/repos/9iseong/pr-test/forks", HttpMethod.GET, entity, typeRef<String>())
+            = restTemplate.exchange("https://api.github.com/repos/9iseong/pr-test/pulls?state=all", HttpMethod.GET, entity, typeRef<String>())
 
 
     log.info { "resultMap ${resultMap.getBody()}" }
@@ -41,7 +41,7 @@ class PullRequestService(
 
     log.info { "jsonInString ${jsonInString}" }
 
-    return ResponseEntity.notFound().build()
+    return jsonInString
   }
 
 
