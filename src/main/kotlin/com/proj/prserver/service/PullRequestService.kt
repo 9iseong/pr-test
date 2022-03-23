@@ -41,8 +41,9 @@ class PullRequestService(
 
     log.info { "jsonInString ${jsonInString}" }
 
-    return jsonInString
+    return resultMap.getBody()
   }
+
 
 
 }
