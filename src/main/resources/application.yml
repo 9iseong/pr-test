@@ -1,5 +1,11 @@
 
 server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
   port: 8080
 
 

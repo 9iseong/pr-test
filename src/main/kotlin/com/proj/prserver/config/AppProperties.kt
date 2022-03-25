@@ -9,10 +9,10 @@ import java.time.format.DateTimeFormatter.ofPattern
 @ConstructorBinding
 @ConfigurationProperties("app.pr")
 data class AppProperties  (
-    var allowedOrigins: String,
-    var allowedMethods: String,
-    var formatDate: String,
-    var formatDateTime: String
+    val allowedOrigins: String,
+    val allowedMethods: String,
+    val formatDate: String,
+    val formatDateTime: String
 ) {
 
   fun getFormatDate(): DateTimeFormatter = ofPattern(formatDate)

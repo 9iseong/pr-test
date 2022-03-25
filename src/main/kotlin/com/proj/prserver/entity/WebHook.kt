@@ -7,8 +7,11 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-class WebHook(
-        var payload: String? = null
+data class WebHook(
+  var event: String? = null,
+  var hookId: String? = null,
+  var delivery: String? = null,
+  var payload: String? = null
 ) {
 
   @Id
