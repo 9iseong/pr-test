@@ -21,7 +21,6 @@ data class PullRequest(
   val updatedAt: LocalDateTime,
   val closedAt: LocalDateTime? = null,
   val mergedAd: LocalDateTime? = null,
-
 )
 {
     @Id @GeneratedValue

@@ -5,10 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.proj.prserver.common.getStrURLDecode
 import com.proj.prserver.entity.WebHook
 import com.proj.prserver.repository.WebHookRepository
-import com.proj.prserver.service.impl.ForkRequestServiceImpl
-import com.proj.prserver.service.impl.PullRequestReviewCommentService
-import com.proj.prserver.service.impl.PullRequestReviewService
-import com.proj.prserver.service.impl.PullRequestService
+import com.proj.prserver.service.WebHookService
 import mu.KotlinLogging
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -21,10 +18,7 @@ inline fun <reified T> ObjectMapper.readValue(s: String): T = this.readValue(s, 
 @RequestMapping("/v1/webhook")
 class WebHookController(
   val webHookRepository: WebHookRepository,
-  val forkRequestService: ForkRequestServiceImpl,
-  val pullRequestService: PullRequestService,
-  val pullRequestReviewService: PullRequestReviewService,
-  val pullRequestReviewCommentService: PullRequestReviewCommentService
+  val webHookService: WebHookService,
 ) {
     private val log = KotlinLogging.logger {}
 
@@ -36,23 +30,14 @@ class WebHookController(
       body: Body
     ):ResponseEntity<WebHook>? {
 
-      val payload:String = getStrURLDecode(body.payload);
+      val strPayload:String = getStrURLDecode(body.payload);
 
       val mapper = ObjectMapper()
-      val map:Map<String,Object> = mapper.readValue(payload);
+      val mapPayload:Map<String,Object> = mapper.readValue(strPayload);
 
-      log.info { "header ${event} ${hookId} ${delivery}" }
-      log.info { "webhook ${map}" }
+      val saveHook = webHookService.save(event, hookId, delivery, strPayload, mapPayload)
 
-      when(event){
-        "fork" -> {  }
-        "pull_request" -> {}
-        "pull_request_review" -> {}
-        "pull_request_review_comment" -> {}
-      }
-
-      val save = webHookRepository.save(WebHook(event, hookId, delivery, body.payload))
-      return ResponseEntity.ok(save)
+      return ResponseEntity.ok(saveHook)
     }
 
   data class Body(

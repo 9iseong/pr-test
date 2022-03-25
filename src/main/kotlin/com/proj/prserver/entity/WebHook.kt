@@ -5,13 +5,16 @@ import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
+import javax.persistence.ManyToOne
 
 @Entity
 data class WebHook(
-  var event: String? = null,
-  var hookId: String? = null,
-  var delivery: String? = null,
-  var payload: String? = null
+  val event: String? = null,
+  val hookId: String? = null,
+  val delivery: String? = null,
+  val payload: String? = null,
+  @ManyToOne
+  val user: User
 ) {
 
   @Id
