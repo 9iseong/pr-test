@@ -1,4 +1,4 @@
-package com.proj.prserver.service
+package com.proj.prserver.service.impl
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import mu.KotlinLogging
@@ -9,17 +9,17 @@ import org.springframework.http.HttpMethod
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
-import org.springframework.web.client.exchange
 
-
-private val log = KotlinLogging.logger {}
 
 inline fun <reified T : Any> typeRef(): ParameterizedTypeReference<T> = object : ParameterizedTypeReference<T>() {}
 
 @Service
-class PullRequestService(
+class PullRequestReviewCommentService(
         val restTemplate: RestTemplate
 ) {
+
+
+  private val log = KotlinLogging.logger {}
 
   fun getPullRequest(): String? {
     log.info { "GET person" }
