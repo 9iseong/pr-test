@@ -2,8 +2,10 @@ package com.proj.prserver.entity
 
 import javax.persistence.Entity
 import javax.persistence.Id
+import javax.persistence.Table
 
 @Entity
+@Table(name = "pr_user")
 data class User(
   @Id val id: String,
   val login: String = "",
@@ -20,7 +22,6 @@ data class User(
   val reposUrl: String = "",
   val eventsUrl: String = "",
   val receivedEventUrl: String = "",
-  val type: String = "",
-  val siteAdmin: String = ""
+  val type: String = ""
 ) {
 }

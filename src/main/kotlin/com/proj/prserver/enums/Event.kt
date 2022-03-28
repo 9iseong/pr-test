@@ -5,9 +5,9 @@ enum class Event(
   val apiUrl:String,
 ) {
 
-  fork("fork", "/repos/{owner}/{repo}/forks"),
-  pull_request("pull_request", "/repos/{owner}/{repo}/pulls"),
-  pull_request_review("pull_request_review", "/repos/{owner}/{repo}/pulls/{pull_number}/reviews"),
-  pull_request_review_comment("pull_request_review_comment", "/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments")
+  FORK("fork", "/repos/{userId}/{repo}/forks"),
+  PULL_REQUEST("pull_request", "/repos/{userId}/{repo}/pulls"),
+  PULL_REQUEST_REVIEW("pull_request_review", "/repos/{userId}/{repo}/pulls/{pull_number}/reviews"),
+  PULL_REQUEST_REVIEW_COMMENT("pull_request_review_comment", "/repos/{userId}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments")
 
 }

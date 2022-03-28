@@ -12,9 +12,9 @@ class PullRequestController(
   val pullRequestService: PullRequestServiceImpl
 ) {
 
-    @GetMapping
-    fun test():String? {
-      return pullRequestService.getPullRequest()
-    }
+//    @GetMapping
+//    fun test():String? {
+//      return pullRequestService.getPullRequest()
+//    }
 
 }

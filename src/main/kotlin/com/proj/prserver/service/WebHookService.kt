@@ -10,10 +10,6 @@ interface WebHookService {
    */
   fun save(event:String, hookId:String, delivery:String, strPayload:String, mapPayload:Map<String,Object>): WebHook
 
-  /**
-   * hook event 조회
-   */
-  fun getApi(url: String)
 
   /**
    * hook 로그 조회

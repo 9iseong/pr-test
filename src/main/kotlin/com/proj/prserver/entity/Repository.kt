@@ -1,7 +1,85 @@
 package com.proj.prserver.entity
 
-import javax.persistence.Id
+import java.time.LocalDateTime
+import javax.persistence.*
 
+@Entity
+@Table(name = "pr_repository")
 data class Repository(
-  @Id val id: String
+  @Id val id: String,
+  val nodeId: String,
+  val name: String,
+  val fullName: String,
+  val private:Boolean,
+
+  @JoinColumn(name = "ownerId")
+  @ManyToOne(fetch= FetchType.LAZY)
+  val owner:User,
+  val htmlUrl: String,
+  val description:String? = null,
+  val fork: Boolean,
+  val url:String,
+  val forksUrl: String,
+  val keysUrl:String,
+  val collaboratorsUrl: String,
+  val teamsUrl: String,
+  val hooksUrl: String,
+  val issueEventsUrl: String,
+  val eventsUrl: String,
+  val assigneesUrl: String,
+  val branchesUrl: String,
+  val tagsUrl: String,
+  val blobsUrl: String,
+  val gitTagsUrl: String,
+  val gitRefsUrl: String,
+  val treesUrl: String,
+  val statusesUrl: String,
+  val languagesUrl: String,
+  val stargazersUrl: String,
+  val contributorsUrl: String,
+  val subscribersUrl: String,
+  val subscriptionUrl: String,
+  val commitsUrl: String,
+  val gitCommitsUrl: String,
+  val commentsUrl: String,
+  val issueCommentUrl: String,
+  val contentsUrl: String,
+  val compareUrl: String,
+  val mergesUrl: String,
+  val archiveUrl: String,
+  val downloadsUrl: String,
+  val issuesUrl: String,
+  val pullsUrl: String,
+  val milestonesUrl: String,
+  val notificationsUrl: String,
+  val labelsUrl: String,
+  val releasesUrl: String,
+  val deploymentsUrl: String,
+  val createdAt: LocalDateTime,
+  val updatedAt: LocalDateTime,
+  val pushedAt: LocalDateTime,
+  val gitUrl: String,
+  val sshUrl: String,
+  val cloneUrl: String,
+  val svnUrl: String,
+  val homepage: String,
+  val size: Integer,
+  val stargazersCount: Integer,
+  val watchersCount: Integer,
+  val language: String?,
+  val hasIssues: Boolean,
+  val hasProjects: Boolean,
+  val hasDownloads: Boolean,
+  val hasWiki: Boolean,
+  val hasPage: Boolean,
+  val forksCount: Integer,
+  val mirrorUrl: String?,
+  val archived: Boolean,
+  val disabled: Boolean,
+  val openIssuesCount: Integer,
+  val forks: Integer,
+  val openIssues: Integer,
+  val watchers: Integer,
+  val defaultBranch: String
+
 )

@@ -33,7 +33,7 @@ class WebHookController(
       val strPayload:String = getStrURLDecode(body.payload);
 
       val mapper = ObjectMapper()
-      val mapPayload:Map<String,Object> = mapper.readValue(strPayload);
+      val mapPayload:Map<String, Object> = mapper.readValue(strPayload);
 
       val saveHook = webHookService.save(event, hookId, delivery, strPayload, mapPayload)
 
