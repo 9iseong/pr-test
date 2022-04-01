@@ -1,6 +1,5 @@
 package com.proj.prserver.service
 
-import com.proj.prserver.entity.Repository
 import com.proj.prserver.entity.WebHook
 
 interface WebHookService {

@@ -1,7 +1,5 @@
 package com.proj.prserver.service
 
-import com.proj.prserver.entity.Repository
-
 interface PullRequestService {
 
   /**

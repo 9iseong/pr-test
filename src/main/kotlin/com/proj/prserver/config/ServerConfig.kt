@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 import org.springframework.http.client.BufferingClientHttpRequestFactory
 import org.springframework.http.client.OkHttp3ClientHttpRequestFactory
 import org.springframework.http.converter.StringHttpMessageConverter
@@ -13,7 +14,6 @@ import org.springframework.web.client.RestTemplate
 import java.nio.charset.StandardCharsets
 import java.time.Duration
 import javax.annotation.PostConstruct
-
 
 @Configuration
 class ServerConfig {

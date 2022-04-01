@@ -8,39 +8,38 @@ import javax.persistence.*
 data class PullRequest(
   val url: String,
   @Id val id: String,
-  val nodeId: String,
-  val htmlUrl: String,
-  val diffUrl: String,
-  val patchUrl: String,
-  val issueUrl: String,
+  val node_id: String,
+  val html_url: String,
+  val diff_url: String,
+  val patch_url: String,
+  val issue_url: String,
   val number: Long,
   val state: String,
   val locked: Boolean,
   val title: String,
 
   @JoinColumn(name = "ownerId")
-  @ManyToOne(fetch=FetchType.LAZY)
-  val owner: User? = null,
+  @ManyToOne
+  var owner: User,
 
-  @JoinColumn(name = "userId")
-  @ManyToOne(fetch=FetchType.LAZY)
-  val user: User,
   val body: String,
-  val createdAt: LocalDateTime = LocalDateTime.now(),
-  val updatedAt: LocalDateTime,
-  val closedAt: LocalDateTime? = null,
-  val mergedAd: LocalDateTime? = null,
+  val created_at: LocalDateTime = LocalDateTime.now(),
+  val updated_at: LocalDateTime,
+  val closed_at: LocalDateTime? = null,
+  val merged_ad: LocalDateTime? = null,
+
 //  val assignee: String? = null,
 //  val assignees: String? = null,
 //  val requestedReviewers: String? = null,
 //  val requestedteams: String
 //  val labels: Array<String>,
 //  val milestone
-  val commitsUrl: String,
-  val reviewCommentsUrl: String,
-  val reviewCommentUrl: String,
-  val commentsUrl: String,
-  val statusesUrl: String
+
+  val commits_url: String,
+  val review_comments_url: String,
+  val review_comment_url: String,
+  val comments_url: String,
+  val statuses_url: String
 )
 {
 }

@@ -53,6 +53,9 @@ dependencies {
     implementation ("org.apache.httpcomponents:httpclient:4.5.9")
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
 
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation("com.google.code.gson:gson:2.9.0")
+
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
     implementation("org.postgresql:postgresql:42.3.3")
 
